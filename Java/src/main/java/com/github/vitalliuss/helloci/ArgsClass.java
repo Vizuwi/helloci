@@ -41,10 +41,45 @@ public class ArgsClass {
     }
 
     public static void revertArgs(String[] args) {
-        System.out.println("\n\nCommand line args revert:");
+        System.out.println("\nCommand line args revert:");
         for (int i = args.length - 1; i >= 0; i--)
             System.out.println("args[" + i + "] : " + args[i]);
     }
 
+    public static int calculateSum() {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int count = 0;
+        int sum = 0;
+
+        System.out.println("\n\nEnter count of number for summation");
+
+        try {
+            count = Integer.parseInt(reader.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            System.out.println("It's not Integer");
+        }
+
+        int[] array = new int[count];
+
+        for (int i = 0; i < count; i++) {
+            try {
+                array[i] = Integer.parseInt(reader.readLine());
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (NumberFormatException e) {
+                System.out.println("It's not Integer. Enter please correct number");
+                i--;
+            }
+        }
+
+        for (int x : array
+        ) {
+            sum += x;
+        }
+
+        return sum;
+    }
 
 }
