@@ -1,4 +1,4 @@
-package com.github.vitalliuss.helloci;
+package com.github.vitalliuss.helloci.main_task;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -2,6 +2,8 @@ package com.github.vitalliuss.helloci;
 
 
 import static org.junit.Assert.*;
+
+import com.github.vitalliuss.helloci.main_task.EmptyClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
