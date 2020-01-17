@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ArrayWorker {
 
@@ -58,4 +59,97 @@ public class ArrayWorker {
         return shortestElements;
     }
 
+    public static ArrayList<ArrayElement> findLongestElementList(int[] array) {
+        ArrayElement longestElement = new ArrayElement(0, 0, 999);
+        int maxLength = 0;
+        ArrayList<ArrayElement> longestElements = new ArrayList<>();
+
+        for (int i = 0; i < array.length; i++) {
+            String stringValue = String.valueOf(array[i]);
+            if (maxLength < stringValue.length()) {
+                maxLength = stringValue.length();
+            }
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            String stringValue = String.valueOf(array[i]);
+            if (stringValue.length() == maxLength) {
+                longestElements.add(new ArrayElement(array[i], i, stringValue.length()));
+            }
+        }
+        return longestElements;
+    }
+
+    public static void printShortestElements(ArrayList<ArrayElement> list) {
+        System.out.println("Number of the shortest element in array: " + list.size());
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println((i + 1) + " element:" +
+                    " Index=" + list.get(i).getIndex() +
+                    " Value=" + list.get(i).getValue() +
+                    " Length=" + list.get(i).getLength()
+            );
+        }
+    }
+
+    public static void printLongestElements(ArrayList<ArrayElement> list) {
+        System.out.println("Number of the longest element in array: " + list.size());
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println((i + 1) + " element:" +
+                    " Index=" + list.get(i).getIndex() +
+                    " Value=" + list.get(i).getValue() +
+                    " Length=" + list.get(i).getLength()
+            );
+        }
+    }
+
+    public static void sortByLength(int[] array) {
+        boolean flag = true;
+        do {
+            flag = false;
+            for (int i = 0; i < array.length - 1; i++) {
+                String element = String.valueOf(array[i]);
+                String nextElement = String.valueOf(array[i + 1]);
+                if (element.length() > nextElement.length()) {
+                    int temp = array[i + 1];
+                    array[i + 1] = array[i];
+                    array[i] = temp;
+                    flag = true;
+                }
+            }
+        } while (flag);
+
+        System.out.println(Arrays.toString(array));
+
+    }
+
+    public static double findAverageLengthOfElementInArray(int[] array) {
+        int averageLength = 0;
+        for (int i = 0; i < array.length; i++) {
+            String stringValue = String.valueOf(array[i]);
+            averageLength += stringValue.length();
+        }
+        return averageLength / (double) array.length;
+    }
+
+    public static void printMoreLongerElements(int[] array, double averageLength) {
+        System.out.println("\nAverage length = " + averageLength);
+        System.out.println("More longer elements:");
+        for (int i = 0; i < array.length; i++) {
+            String stringValue = String.valueOf(array[i]);
+            if ((double)stringValue.length() > averageLength){
+                System.out.println("Value=" + array[i] + " length= " + stringValue.length() );
+            }
+        }
+    }
+
+    public static void printMoreShoterElements(int[] array, double averageLength) {
+        System.out.println("\nAverage length = " + averageLength);
+        System.out.println("More shorter elements:");
+        for (int i = 0; i < array.length; i++) {
+            String stringValue = String.valueOf(array[i]);
+            if ((double)stringValue.length() < averageLength){
+                System.out.println("Value=" + array[i] + " length= " + stringValue.length() );
+            }
+        }
+    }
 }

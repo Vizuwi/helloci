@@ -4,7 +4,6 @@ import com.github.vitalliuss.helloci.optional_task.ArrayElement;
 import com.github.vitalliuss.helloci.optional_task.ArrayWorker;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class App {
     public static void main(String[] args) {
@@ -25,18 +24,20 @@ public class App {
         /** MainTask 5 */
         //   MyCalendar.checkMonth();
 
-        /** OptonalTask */
+        /** OptonalTask 1*/
         int[] array = ArrayWorker.generateArray();
-        ArrayList<ArrayElement> shortestElements = ArrayWorker.findShortestElementList(array);
-        System.out.println("Number of shortest element in array: " + shortestElements.size());
-        for (int i = 0; i < shortestElements.size(); i++) {
-            System.out.println((i + 1) + " element:" +
-                    " Index=" + shortestElements.get(i).getIndex() +
-                    " Value=" + shortestElements.get(i).getValue() +
-                    " Length=" + shortestElements.get(i).getLength()
-            );
-        }
+        //  ArrayList<ArrayElement> shortestElements = ArrayWorker.findShortestElementList(array);
+        //   ArrayList<ArrayElement> longestElements = ArrayWorker.findLongestElementList(array);
+        //   ArrayWorker.printShortestElements(shortestElements);
+        //   ArrayWorker.printLongestElements(longestElements);
 
+        /** OptonalTask 2*/
+        //  ArrayWorker.sortByLength(array);
+
+        /** OptonalTask 3*/
+        double averageLength = ArrayWorker.findAverageLengthOfElementInArray(array);
+        ArrayWorker.printMoreLongerElements(array, averageLength);
+        ArrayWorker.printMoreShoterElements(array, averageLength);
     }
 
     public static void doNothing() {
