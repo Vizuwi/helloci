@@ -136,8 +136,8 @@ public class ArrayWorker {
         System.out.println("More longer elements:");
         for (int i = 0; i < array.length; i++) {
             String stringValue = String.valueOf(array[i]);
-            if ((double)stringValue.length() > averageLength){
-                System.out.println("Value=" + array[i] + " length= " + stringValue.length() );
+            if ((double) stringValue.length() > averageLength) {
+                System.out.println("Value=" + array[i] + " length= " + stringValue.length());
             }
         }
     }
@@ -147,9 +147,42 @@ public class ArrayWorker {
         System.out.println("More shorter elements:");
         for (int i = 0; i < array.length; i++) {
             String stringValue = String.valueOf(array[i]);
-            if ((double)stringValue.length() < averageLength){
-                System.out.println("Value=" + array[i] + " length= " + stringValue.length() );
+            if ((double) stringValue.length() < averageLength) {
+                System.out.println("Value=" + array[i] + " length= " + stringValue.length());
+            }
+        }
+    }
+
+    public static int calculateDifferntNumbers(int number) {
+        String stringValue = String.valueOf(number);
+        int count = 0;
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < stringValue.length(); j++) {
+                if (Character.getNumericValue(stringValue.charAt(j)) == i) {
+                    count++;
+                    break;
+                }
+            }
+        }
+        return count;
+    }
+
+    public static void findMoreUniqueNumber(int[] array) {
+        int minCountOfDifferentNumbers = 999;
+        for (int i = 0; i < array.length; i++) {
+            int countOfDifferentNumbers = calculateDifferntNumbers(array[i]);
+            if (countOfDifferentNumbers < minCountOfDifferentNumbers) {
+                minCountOfDifferentNumbers = countOfDifferentNumbers;
+            }
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            int countOfDifferentNumbers = calculateDifferntNumbers(array[i]);
+            if (countOfDifferentNumbers == minCountOfDifferentNumbers) {
+                System.out.println("Number with Min different numbers: " + array[i]);
+                break;
             }
         }
     }
 }
+
