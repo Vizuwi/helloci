@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class MyCalendar {
+public class TaskCalendar {
 
     public static void checkMonth() {
 
